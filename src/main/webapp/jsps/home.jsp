@@ -10,7 +10,8 @@
 </head>
 <body>
 <h1 align="center">Welcome to Devops Classes.</h1>
-<h1 align="center"> Hello all, welcome, i am bharath, we are providing training on devops & cloud technologies we are located in VijayaNagara, Bengaluru, India and we will also provide placements across reknown IT companies..</h1>
+<h1 align="center">Hello all, welcome, i am Bharath.</h1>
+<h1 align="center"> we are providing training on DevOps & cloud technologies, we are located in VijayaNagara, Bengaluru and we will also provide placements across reknown IT companies..</h1>
 <hr>
 <br>
 	<h1><h3> Server Side IP Address </h3><br>
@@ -30,20 +31,20 @@ out.println("Server Host Name :: "+inetAddress.getHostName());
 		<img src="images/vvsagarlogo.jpg" alt="" width="100">
 	</span>
 	<span style="font-weight: bold;">
-		skyDevops, 
+		ElevenDevops, 
 		VijayaNagara, 
 		Bengaluru
 		+91-9066660550
-		skydevopsbengaluru@gmail.com
+		elevendevops@gmail.com
 		<br>
-		<a href="mailto:skydevopsbengaluru@gmail.com">Mail to skydevops Technologies</a>
+		<a href="mailto:elevendevops@gmail.com">Mail to elevenDevops Technologies</a>
 	</span>
 </div>
 <hr>
 	<p> Service : <a href="services/employee/getEmployeeDetails">Get Employee Details </p>
 <hr>
 <hr>
-<p align=center>skydevops Technologies - Consultants, Training, Development Center.</p>
+<p align=center>elevenDevops Technologies - Consultants, Training, Development Center.</p>
 
 
 </body>
