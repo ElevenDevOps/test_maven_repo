@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1 align="center">Welcome to Devops Classes.</h1>
-<h1 align="center">Hello all, welcome, i am Bharath.</h1>
+<h1 align="center">Hello all, welcome, i am Bharath</h1>
 <h1 align="center"> we are providing training on DevOps & cloud technologies, we are located in VijayaNagara, Bengaluru and we will also provide placements across reknown IT companies..</h1>
 <hr>
 <br>
