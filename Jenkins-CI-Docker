@@ -1,0 +1,47 @@
+pipeline {
+  environment {
+    dockerimagename = "vijaylokesh/my-tomcat"
+    registry_url = "https://registry.hub.docker.com"
+    registryCredential = 'my-docker-private-id'
+    }
+    tools {
+        maven 'maven3.8.6'
+    }
+    
+	agent {
+     label 'CI-Jenkins-Slave'
+  }
+  
+  stages {
+    stage('Cloning Git') {
+      steps {
+        checkout scm
+      }
+	}
+	
+	 stage ('Build Package') {
+      steps {
+          sh 'mvn clean package'
+         }
+       }
+    stage('Building image') {
+      steps{
+        script {
+         
+         dockerImage = docker.build dockerimagename
+        }
+      }
+    }
+    stage('Pushing Image') {
+      steps{
+        script {
+          docker.withRegistry( registry_url, registryCredential ) {
+            dockerImage.push("${env.BUILD_NUMBER}")
+            dockerImage.push("latest")
+          }
+        }
+      }
+    } 
+	
+  }
+} 
