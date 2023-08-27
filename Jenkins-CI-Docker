@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    dockerimagename = "vijaylokesh/my-tomcat"
+    dockerimagename = "elevendevops/myelevendevopsimage"
     registry_url = "https://registry.hub.docker.com"
     registryCredential = 'my-docker-private-id'
     }
