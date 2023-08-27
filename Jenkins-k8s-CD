@@ -1,0 +1,21 @@
+pipeline {
+  agent {
+  label 'my-docker-slave'
+  }
+  stages {
+    stage('Cloning Git') {
+      steps {
+        checkout scm
+      }
+	}
+	
+	 stage('Deploying App to Kubernetes') {
+      steps {
+        script {
+          kubernetesDeploy(configs: "k8s-deployment-service.yaml", kubeconfigId: "kubernetes-deployment")
+        }
+      }
+    }
+	
+  }
+} 
