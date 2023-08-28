@@ -1,14 +1,14 @@
 pipeline {
    agent {
-       label 'jenkins-slave'
+       label 'dockerslave'
     }
     
     environment {
-    dockerimagename = "vijaylokesh/my-tomcat:latest"
+    dockerimagename = "indrakpbannad/sagarci:latest"
     registry_name = "registry.hub.docker.com"
     registry_url = "https://registry.hub.docker.com"
-    registryCredential = 'my-docker-private-id'
-    container_name= "vijaylokesh-my-tomcat"
+    registryCredential = 'docker'
+    container_name= "indra-my-tomcat"
 	  
     }    
 
@@ -41,7 +41,7 @@ pipeline {
            image = docker.image(dockerimagename)
            image.pull()
            }
-           sh 'docker run -d -p 8080:8080 --rm --name $container_name  $registry_name/$dockerimagename'
+           sh 'docker run -d -p 9393:8080 --rm --name $container_name  $registry_name/$dockerimagename'
            
          }  
 
