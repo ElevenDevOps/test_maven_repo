@@ -1,6 +1,6 @@
 pipeline {
   agent {
-  label 'my-docker-slave'
+  label 'CI-Jenkins-Slave'
   }
   stages {
     stage('Cloning Git') {
