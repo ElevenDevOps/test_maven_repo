@@ -1,15 +1,15 @@
 pipeline {
   environment {
-    dockerimagename = "elevendevops/myelevendevopsimage"
+    dockerimagename = "indrakpbannad/sagarci"
     registry_url = "https://registry.hub.docker.com"
-    registryCredential = 'my-docker-private-id'
+    registryCredential = 'docker'
     }
     tools {
-        maven 'maven3.8.6'
+        maven 'maven'
     }
     
 	agent {
-     label 'CI-Jenkins-Slave'
+     label 'slave1'
   }
   
   stages {
