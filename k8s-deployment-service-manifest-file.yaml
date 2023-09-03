@@ -43,4 +43,4 @@ spec:
  selector:
    app: my-app
 
-...
+---
