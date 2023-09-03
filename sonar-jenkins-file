@@ -1,0 +1,70 @@
+pipeline {
+  environment {
+    dockerimagename = "vijaylokesh/my-tomcat"
+    registry = "https://hub.docker.com/"
+    registryCredential = 'my-docker-private-id'
+    dockerImage = ""	  
+	  
+    }
+	tools{
+        maven '3.8.6'
+    }
+  agent {
+  label 'my-docker-slave'
+  }
+  stages {
+    stage('Cloning Git') {
+      steps {
+        checkout scm
+      }
+	}
+	
+
+  
+    stage('Scan') {
+      steps {
+        withSonarQubeEnv(installationName: 'SonarQube') { 
+          sh 'mvn clean package sonar:sonar'
+        }
+      }
+    
+
+   }
+   stage("Quality Gate") {
+      steps {
+        timeout(time: 2, unit: 'MINUTES') {
+          waitForQualityGate abortPipeline: true
+        }
+      }
+    }
+   
+   stage ('Build Package') {
+
+            steps {
+               sh 'mvn clean package'
+            }
+        }
+        
+        
+    stage('Building image') {
+      steps{
+        script {
+         
+         dockerImage = docker.build dockerimagename
+        }
+      }
+    }
+    stage('Pushing Image') {
+      steps{
+        script {
+          docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
+            dockerImage.push("${env.BUILD_NUMBER}")
+            dockerImage.push("latest")
+          }
+        }
+      }
+     }
+	
+	
+  }
+} 
