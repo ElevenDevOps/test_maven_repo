@@ -20,7 +20,7 @@ spec:
       - name: my-registry-key
       containers:
       - name: elevendevops-container
-        image: elevendevops/myelevendevopsimage:3
+        image: elevendevops/myelevendevopsimage:1
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
